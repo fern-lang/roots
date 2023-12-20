@@ -37,6 +37,12 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(roots)
 ```
 
+Then, you can link against the Roots library in your CMakeLists.txt file:
+
+```cmake
+target_link_libraries(<target> PRIVATE Roots::Roots)
+```
+
 ## Usage
 
 To use the Roots library in your C++ project, you can include the header files in your source files:
