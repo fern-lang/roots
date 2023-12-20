@@ -18,7 +18,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(roots
   STATIC
   lib/Environment.cpp
-  lib/Error.cpp
   lib/Filesystem.cpp
   lib/Memory.cpp
   lib/String.cpp
