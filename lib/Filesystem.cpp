@@ -12,7 +12,7 @@ auto home() -> path_type {
 auto readFile(const path_type &path) -> roots::result<std::string, Error> {
   if (!roots::fs::exists(path)) {
     return roots::fail(
-        Error(ErrKind::FileIo, "unable to read, file does not exist"));
+        Error("unable to read, file does not exist"));
   }
 
   std::ifstream file(path);
@@ -26,7 +26,7 @@ auto readFileBytes(const path_type &path)
     -> roots::result<std::vector<u8>, Error> {
   if (!roots::fs::exists(path)) {
     return roots::fail(
-        Error(ErrKind::FileIo, "unable to read, file does not exist"));
+        Error("unable to read, file does not exist"));
   }
 
   std::ifstream file(path, std::ios::binary);
@@ -43,8 +43,7 @@ auto exists(const path_type &path) -> bool {
 auto relativePath(const path_type &path, const path_type &dir)
     -> roots::result<path_type, Error> {
   if (!roots::fs::exists(path)) {
-    return roots::fail(Error(ErrKind::FileIo,
-                           "unable to get relative path, file does not exist"));
+    return roots::fail(Error("unable to get relative path, file does not exist"));
   }
 
   return std::filesystem::relative(path, dir);
@@ -52,8 +51,7 @@ auto relativePath(const path_type &path, const path_type &dir)
 
 auto absolutePath(const path_type &path) -> roots::result<path_type, Error> {
   if (!roots::fs::exists(path)) {
-    return roots::fail(Error(ErrKind::FileIo,
-                           "unable to get absolute path, file does not exist"));
+    return roots::fail(Error("unable to get absolute path, file does not exist"));
   }
 
   return std::filesystem::absolute(path);
@@ -76,7 +74,7 @@ auto search(const path_type &dir,
     -> roots::result<path_type, Error> {
   if (!roots::fs::exists(dir)) {
     return roots::fail(
-        Error(ErrKind::FileIo, "unable to search, directory does not exist"));
+        Error("unable to search, directory does not exist"));
   }
 
   for (auto &p : std::filesystem::recursive_directory_iterator(dir)) {
@@ -86,14 +84,14 @@ auto search(const path_type &dir,
   }
 
   return roots::fail(
-      Error(ErrKind::FileIo, "unable to search, no matching file found"));
+      Error("unable to search, no matching file found"));
 }
 
 auto writeBytes(const path_type &path, const std::vector<u8> &bytes)
     -> roots::result<void, Error> {
   if (!roots::fs::exists(path)) {
     return roots::fail(
-        Error(ErrKind::FileIo, "unable to write, file does not exist"));
+        Error("unable to write, file does not exist"));
   }
 
   std::ofstream file(path, std::ios::binary);
