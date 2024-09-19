@@ -22,6 +22,16 @@ concept Printable = requires(std::ostream &os, T t) {
   { os << t };
 };
 
+template <typename T>
+concept EqualityComparable = std::equality_comparable<T>;
+
+template <typename T>
+concept CopyConstructible = std::copy_constructible<T>;
+
+template <typename T>
+concept MoveConstructible = std::move_constructible<T>;
+
+
 } // namespace roots::concepts
 
 #endif

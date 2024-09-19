@@ -13,7 +13,7 @@ Roots is currently in development and may not be ready for production use. The A
 - [x] String utilities (string splitting, string trimming, etc.)
 - [x] Error handling/creation utilities (Result type, Error type)
 - [x] Useful C++ structures (BitFlags, TaggedUnion, etc.)
-- [ ] C++20 Concepts (EqualityComparable, CopyConstructible, etc.)
+- [x] C++20 Concepts (EqualityComparable, CopyConstructible, etc.)
 - [ ] Process utilities (process spawning, process termination, etc.)
 - [ ] Threading utilities (thread spawning, thread termination, etc.)
 - [ ] Networking utilities (socket creation, socket termination, etc.)
